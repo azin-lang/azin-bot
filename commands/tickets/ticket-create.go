@@ -37,6 +37,7 @@ func handleCreate(s *discordgo.Session, i *discordgo.InteractionCreate) {
 	addTicket(ch.ID, user.ID)
 
 	_, err = s.ChannelMessageSendComplex(ch.ID, &discordgo.MessageSend{
+		Content: user.Mention(),
 		Embed: &discordgo.MessageEmbed{
 			Description: "A founder/mod will be with you shortly, describe your issue below and then wait.",
 			Color:       0x2b2d31,
